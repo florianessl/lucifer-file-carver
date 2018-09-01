@@ -1,0 +1,180 @@
+#ID		FIELD NAME			DATA TYPE			INNER STRUCT NAME
+
+MAIN
+MAIN	lmt					ArrayOfStruct		LcfMapTree
+MAIN	ldb					Struct				LcfDataBase
+MAIN	lmu					Struct				LcfMapUnit
+MAIN	lsd					Struct				LcfSaveData
+
+
+LcfMapTree
+1		name				String
+2		parentId			Integer
+3		order				Integer
+4		type				Integer
+5		scrollX				Integer
+6		scrollY				Integer
+7		expanded			Bool		
+11		musicType			Integer
+12		music				Struct				LcfMusic
+21		bgId				Integer
+22		bgName				String
+31		teleportId			Integer
+32		escapeId			Integer
+33		saveId				Integer
+41		monsters			ArrayOfStruct		LcfMonster
+44		steps				Integer
+51		area				Binary
+		
+LcfDataBase
+11		character			ArrayOfStruct		LcfCharacter
+12		skill				ArrayOfStruct		skill
+13		item				ArrayOfStruct		item
+14		enemy				ArrayOfStruct		enemy
+15		enemygroup			ArrayOfStruct		enemygroup
+16		terrain				ArrayOfStruct		terrain
+17		attribute			ArrayOfStruct		attribute
+18		condition			ArrayOfStruct		condition
+19		battleanimation		ArrayOfStruct		battleanimation
+20		chipset				ArrayOfStruct		chipset
+21		vocabulary			Struct				vocabulary
+22		system				Struct				system
+23		switch				ArrayOfStruct		LcfSwitch
+24		variable			ArrayOfStruct		LcfVariable
+25		commonEvents1		ArrayOfStruct		commonEvent
+26		commonEvents2		ArrayOfStruct		commonEvent
+27		commonEvents3		ArrayOfStruct		commonEvent
+28		commonEvents4		ArrayOfStruct		commonEvent
+#TODO: 2003
+		
+LcfMapUnit
+1		chipsetId			Integer
+2		width				Integer
+3		height				Integer
+11		scrollType			Integer
+31		usePanorama			Bool
+32		panFileName			String
+33		panHorzLoop			Bool
+34		panVertLoop			Bool
+35		panHorzLoopAuto		Bool
+36		panHorzLoopSpd		Integer
+37		panVertLoopAuto		Bool
+38		panVertLoopSpd		Integer
+71		lowerMap			Binary
+72		upperMap			Binary
+81		mapEvents			ArrayOfStruct		LcfEvent
+91		saveTime			Integer
+
+LcfSaveData
+100		preview				Struct				LcfPreview
+101		system				Struct				system
+102		screen				Struct				screen
+103		pictures			ArrayOfStruct		picture 
+104		party				Struct				party
+105		boat				Struct				boat
+106		ship				Struct				ship
+107		airship				Struct				airship
+108		character			ArrayOfStruct		LcfSaveCharacter
+109		status				Struct				status
+110		teleports			ArrayOfStruct		LcfTeleport
+111		map					Struct				map
+112		???					Binary
+113		mapEvents			ArrayOfStruct		LcfMapEvent
+114		commonEvents		ArrayOfStruct		commonEvent
+		
+LcfMusic
+1		name				String
+2		fade				Integer
+3		volume				Integer
+4		tempo				Integer
+5		balance				Integer
+		
+LcfSound
+1		name				String
+3		volume				Integer
+4		tempo				Integer
+5		balance				Integer
+		
+LcfMonster
+1		monsterId			Integer
+		
+LcfSwitch
+1		name				String
+		
+LcfVariable
+1		name				String
+		
+LcfEvent
+1		name				String
+2		X					Integer
+3		Y					Integer
+4		???					Binary
+5		eventPages			ArrayOfStruct		LcfEventPage
+		
+LcfEventPage
+2		triggerTerm			Struct				triggerTerm
+21		charSet				String
+22		char_chip_index		Integer
+23		charDirection		Integer
+24		semiTranparency		Bool
+25		???_[1]				Binary
+31		moveType			Integer
+32		moveFreq			Integer
+33		evTriggerType		Integer
+34		drawPrio			Integer
+35		drawPrioNoPile		Bool
+36		animationType		Integer
+37		???_[2]				Binary
+41		moveRoute			Struct				moveRoute
+51		evDataSize			Integer
+52		evData				ArrayOfStruct		LcfEventCommand #Vector
+
+#LcfEventCommand
+#1		code				Integer
+#2		indent				Integer
+#3		string				String
+#4		parameters			Binary
+		
+LcfPreview
+1		dateTime			Binary 					#TODO: Double
+11		frontCharName		String
+12		frontCharLevel		Integer
+13		frontCharHp			Integer
+21		char1Faceset		String
+22		char1FaceIndex		Integer
+23		char2Faceset		String
+24		char2FaceIndex		Integer
+25		char3Faceset		String
+26		char3FaceIndex		Integer
+27		char4Faceset		String
+28		char4FaceIndex		Integer
+		
+LcfSaveCharacter
+1		name				String
+2		title				String
+11		charset				String
+12		charsetIndex		Integer
+21		faceset				String
+22		facesetIndex		Integer
+31		level				Integer
+32		experience			Integer
+33		hpFix				Integer
+34		mpFix				Integer
+41		attackFix			Integer
+42		guardFix			Integer
+43		mentalFix			Integer
+44		speedFix			Integer
+51		masteredSkillNo		Integer
+52		masteredSkill		Binary
+61		equipment			Binary
+71		currentHp			Integer
+72		currentMp			Integer
+80		job					Integer
+82		doubleHand			Bool
+		
+LcfTeleport
+1		mapId				Integer
+2		X					Integer
+3		Y					Integer
+4		assignTrueToSwitch	Bool
+5		switchId			Integer
