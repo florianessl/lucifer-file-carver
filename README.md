@@ -14,7 +14,7 @@ Development is on hold right now because I was able to recover most of my files.
 # Usage
 	java -jar ./lcf-carver.jar -i my_hdd_image.raw -o OUTPUT_PATH
 	
-##Additional options
+## Additional options
 	-s		start at specified position in file (decimal input)
 	-m		maximum length of data read (decimal input)
 	-l		specify an alternative path for log output (default: OUTPUT_PATH/carver.log)
